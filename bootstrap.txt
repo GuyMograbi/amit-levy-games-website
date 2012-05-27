@@ -1,3 +1,0 @@
-2012-05-27 6:48:37 - INFO  --> Loading configuration 
-2012-05-27 6:48:37 - INFO  --> Loading configuration 
-2012-05-27 6:48:38 - INFO  --> Loading configuration 

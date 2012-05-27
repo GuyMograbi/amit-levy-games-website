@@ -1,4 +1,0 @@
-
-
-2012-05-27 19:09:48 - INFO  --> no such user [admin]. redirecting to login 
-2012-05-27 19:09:48 - INFO  --> redirecting to login 
