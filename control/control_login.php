@@ -58,6 +58,7 @@ class LoginController
         else
         {
             $this->loginLogic->keepUserInCookie($this->user, $_COOKIE);
+            common_getLogger()->LogInfo("user [".$this->user->username.",".true."] logged is");
             if ($this->user->isAdmin)
             {
                 common_getLogger()->LogInfo("redirecting to admin index");

@@ -23,7 +23,7 @@ class LoginLogic
 
                     if ($this->__createUserCookieHmac( $userId ) == $hmac)
                     {
-                        return $userId;
+                        return $this->customerDAO->findById($userId);
                     }
                 }
 
@@ -38,8 +38,9 @@ class LoginLogic
 
     function keepUserInCookie( $customer, $cookie )
     {
-        $cookie['userId'] = $customer->id;
-        $cookie['hmac'] = $this->__createUserCookieHmac($customer->id);
+        $config = common_getConfig();
+        setcookie('userId', $customer->id, time()+$config['session_timeout']);
+        setcookie('hmac', $this->__createUserCookieHmac($customer->id), time()+$config['session_timeout']);
     }
 
     function __createUserCookieHmac( $userId )
@@ -55,7 +56,8 @@ class LoginLogic
         // TODO : add cookie support
         // TODO : need to use HMAC so we will know cookie was not manipulated
 
-        $customer = $this->customerDAO->find_by_username($username);
+        common_getLogger()->LogInfo("searching user [".$username."]");
+        $customer = $this->customerDAO->findByUsername($username);
         $encrypt = new EncryptDecrypt();
         if ( $customer == null )
         {

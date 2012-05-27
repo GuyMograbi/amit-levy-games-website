@@ -8,6 +8,7 @@
     $GLOBALS['logger'] = new KLogger("log.txt",KLogger::INFO);
     $GLOBALS['db_conn'] = new Db($config);
 
+    function common_getConfig(){ return $GLOBALS['config'];}
     function common_getLogger(){ return $GLOBALS['logger'];}
     function common_getDbConn(){ return $GLOBALS['db_conn'];}
 

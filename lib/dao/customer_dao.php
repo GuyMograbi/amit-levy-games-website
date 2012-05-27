@@ -9,9 +9,19 @@ class CustomerDAO
             $this->conn = &$conn;
         }
 
-        function find_by_username( $username )
+        function findById( $userId )
         {
-            $STH = $this->conn->query("select id,password, username from customer where username = ?", array($username) );
+            $STH = $this->conn->query("select id, username, isAdmin from customer where id = ?", array($userId));
+            while ($row = $STH ->fetch())
+            {
+                return $this->__get_from_result($row);
+            }
+            return null;
+        }
+
+        function findByUsername( $username )
+        {
+            $STH = $this->conn->query("select id,password, username, isAdmin from customer where username = ?", array($username) );
             while ($row = $STH->fetch())
             {
                return $this->__get_from_result($row);
