@@ -1,0 +1,10 @@
+{
+    "name":"this is a really long name!",
+
+    "db_username":"root",
+    "db_password":"hotmail",
+    "db_host":"localhost",
+    "db_name":"from_php_tests",
+
+    "secret":"174b8910-a828-11e1-afa6-0800200c9a66"
+}
